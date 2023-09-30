@@ -20,7 +20,7 @@ def add (task):
         file.write(task + "\n")
         click.echo(f'Task "{task}" added to the todo list.')
 
-
+# error here i cant see the tasks with python todo.py list
 @cli.command()
 def list ():
     """List all tasks in the to do list."""
@@ -46,6 +46,7 @@ def remove(task_number):
         click.echo(f'Task "{removed_task}" removed from the todo list.')
     else:
         click.echo('Invalid task number.')
-    #hello 
+    
+    #
 if __name__ == '__main__':
     cli()
