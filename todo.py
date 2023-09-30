@@ -1,12 +1,9 @@
 import click 
 import os 
+from utils import dir_check, create_todo_file
 
-# define the file path for storing the todo list 
-
-TODO_FILE = "todo.txt"
-
-if not os.path.exists(TODO_FILE):
-    open(TODO_FILE, "w").close()
+dir_check()
+create_todo_file()
 
 @click.group()
 def cli():
@@ -15,7 +12,6 @@ def cli():
 @cli.command()
 @click.argument("task")
 def add (task):
-    """Add a new task to the todo list"""
     with open(TODO_FILE, "a") as file:
         file.write(task + "\n")
         click.echo(f'Task "{task}" added to the todo list.')
